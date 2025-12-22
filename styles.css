@@ -1,0 +1,188 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:black;
+  color:white;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ===== APP LAYOUT ===== */
+.app{
+  display:flex;
+  flex:1;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  width:240px;
+  background:darkslategray;
+  padding:20px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:35px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo i{
+  color:limegreen;
+}
+
+.menu ul{
+  list-style:none;
+  margin-bottom:30px;
+}
+
+.menu li{
+  padding:12px;
+  cursor:pointer;
+  color:silver;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.menu li:hover{
+  background:dimgray;
+  color:white;
+}
+
+/* ===== MAIN ===== */
+.main{
+  flex:1;
+  padding:25px 35px;
+  background:linear-gradient(darkgray, black);
+  overflow-y:auto;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  position:sticky;
+  top:0;
+  background:black;
+  padding:15px 0;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* SEARCH */
+.search{
+  background:dimgray;
+  padding:8px 15px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.search input{
+  background:none;
+  border:none;
+  outline:none;
+  color:white;
+  width:220px;
+}
+
+/* PROFILE */
+.profile{
+  background:dimgray;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+/* ===== CONTENT ===== */
+.section-title{
+  font-size:24px;
+  margin:30px 0 20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:darkgray;
+  padding:15px;
+  border-radius:10px;
+  transition:0.3s;
+  position:relative;
+}
+
+.card:hover{
+  background:gray;
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+
+.card p{
+  font-size:14px;
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:limegreen;
+  color:black;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:10px;
+}
+
+/* ===== PLAYER ===== */
+.player{
+  height:85px;
+  background:darkgray;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  border-top:1px solid gray;
+}
+
+.song{
+  font-size:14px;
+}
+
+.controls button{
+  background:none;
+  border:none;
+  color:white;
+  font-size:18px;
+  margin:0 10px;
+  cursor:pointer;
+}
+
+.controls button:hover{
+  color:limegreen;
+}
+
+.volume{
+  font-size:16px;
+}
