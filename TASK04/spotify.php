@@ -132,5 +132,24 @@
     playBtn.innerHTML='<i class="fa fa-pause"></i>';
   }
 </script>
-</body>
-</html>
+ <div class="form-page">
+  <h2>Add Song</h2>
+
+  <form class="form"
+    action="add_songs.php" method="post" enctype="multipart/form-data>
+    
+    <label for="song">Song Name:</label>
+    <input type="text" id="song" name="song" placeholder="Enter Song Name">
+
+    <label for="artist">Artist Name:</label>
+    <input type="text" id="artist" name="artist" placeholder="Enter Artist Name">
+
+    <label for="album">Album Name:</label>
+    <input type="text" id="album" name="album" placeholder="Enter Album Name">
+
+    <label for="audio">Upload Song:</label>
+    <input type="file" id="audio" name="audio" accept="audio/*">
+
+    <button type="submit">Submit</button>
+  </form>
+</div> 
