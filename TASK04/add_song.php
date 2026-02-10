@@ -1,37 +1,41 @@
 <?php
-// Include database connection
-include "db.php";
+include "db.php";  // Make sure your DB connection is included
 
-// Check if form is submitted
 if (isset($_POST['submit'])) {
 
-    // Local variables to store form data
+    // Form data
     $song   = $_POST['song'];
     $artist = $_POST['artist'];
     $album  = $_POST['album'];
 
-    // Audio file handling
-    $audio_name = $_FILES['audio']['name'];
-    $audio_tmp  = $_FILES['audio']['tmp_name'];
+    // File data
+    $fileName = $_FILES['myfile']['name'];
+    $tempName = $_FILES['myfile']['tmp_name'];
 
-    // Destination folder
-    $folder = "songs/" . $audio_name;
+    // Upload folder
+    $uploadFolder = "uploads/" . $fileName;
 
-    // Move file to folder
-    if (move_uploaded_file($audio_tmp, $folder)) {
+    // Move file
+    if (move_uploaded_file($tempName, $uploadFolder)) {
 
-        // Insert data into database
-        $query = "INSERT INTO songs (song_name, artist, album, audio_file)
-                  VALUES ('$song', '$artist', '$album', '$audio_name')";
+        // Insert into Spotify DB
+        $query = "INSERT INTO songs (song_name, artist_name, album_name, audio_file)
+                  VALUES ('$song', '$artist', '$album', '$fileName')";
 
         if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Song added successfully!'); window.location.href='index.php';</script>";
+
+            // ✅ Redirect with file name
+            echo "<script>
+                    alert('Song uploaded & saved successfully!');
+                    window.location.href='spotify.php?file=$fileName';
+                  </script>";
+
         } else {
-            die("Database error: " . mysqli_error($conn)); // Stop if DB error
+            echo "Database error: " . mysqli_error($conn);
         }
 
     } else {
-        die("File upload failed"); // Stop if file not uploaded
+        echo "File upload failed";
     }
 }
 ?>
