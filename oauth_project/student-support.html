@@ -1,0 +1,242 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Student Support</title>
+</head>
+<body>
+
+<h2>Student Support Page</h2>
+
+<button onclick="googleLogin()">Login with Google</button>
+<button onclick="githubLogin()">Login with GitHub</button>
+<button onclick="logout()">Logout</button>
+
+<p id="userDetails"></p>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script>
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDP8ihJeHOY_9Q0utkt4XOapU2NvX-rFeE",
+  authDomain: "student-support-oauth-8693e.firebaseapp.com",
+  projectId: "student-support-oauth-8693e",
+  storageBucket: "student-support-oauth-8693e.appspot.com",
+  messagingSenderId: "675837527061",
+  appId: "1:675837527061:web:a6e4ed96e2f46a821a3a1c"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Create auth object
+var auth = firebase.auth();
+
+// Google Login
+function googleLogin() {
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provider)
+    .then(function(result) {
+
+        var user = result.user;
+
+        document.getElementById("userDetails").innerHTML =
+            "Logged in as: " + user.displayName + "<br>Email: " + user.email;
+
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
+}
+function githubLogin() {
+
+    var provider = new firebase.auth.GithubAuthProvider();
+
+    auth.signInWithPopup(provider)
+    .then(function(result) {
+
+        var user = result.user;
+
+        document.getElementById("userDetails").innerHTML =
+            "GitHub Login Successful<br>" +
+            "Name: " + user.displayName + "<br>" +
+            "Email: " + user.email;
+
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
+}
+
+// Logout
+function logout() {
+    auth.signOut();
+    document.getElementById("userDetails").innerHTML = "Logged out!";
+}
+
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Support Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            text-align: center;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4e73df;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .google-btn {
+            background-color: #db4437;
+            color: white;
+        }
+
+        .github-btn {
+            background-color: #333;
+            color: white;
+        }
+
+        .logout-btn {
+            background-color: #858796;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Watermark */
+        body::before {
+            content: "Meghana Reddy";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            color: rgba(255,255,255,0.1);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">MR-8693</div>
+    <h1>Student Support Portal</h1>
+    <p>OAuth Authentication System</p>
+
+    <button class="google-btn" onclick="googleLogin()">Login with Google</button>
+    <button class="github-btn" onclick="githubLogin()">Login with GitHub</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <p id="userDetails" style="margin-top:20px;"></p>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script>
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDP8ihJeHOY_9Q0utkt4XOapU2NvX-rFeE",
+  authDomain: "student-support-oauth-8693e.firebaseapp.com",
+  projectId: "student-support-oauth-8693e",
+  storageBucket: "student-support-oauth-8693e.appspot.com",
+  messagingSenderId: "675837527061",
+  appId: "1:675837527061:web:a6e4ed96e2f46a821a3a1c"
+};
+
+firebase.initializeApp(firebaseConfig);
+var auth = firebase.auth();
+
+function googleLogin() {
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provider)
+    .then(function(result) {
+
+        var user = result.user;
+
+        document.getElementById("userDetails").innerHTML =
+            "<b>Google Login Successful</b><br>" +
+            "Name: " + user.displayName + "<br>" +
+            "Email: " + user.email;
+
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
+}
+
+function githubLogin() {
+
+    var provider = new firebase.auth.GithubAuthProvider();
+
+    auth.signInWithPopup(provider)
+    .then(function(result) {
+
+        var user = result.user;
+
+        document.getElementById("userDetails").innerHTML =
+            "<b>GitHub Login Successful</b><br>" +
+            "Name: " + user.displayName + "<br>" +
+            "Email: " + user.email;
+
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
+}
+
+function logout() {
+    auth.signOut();
+    document.getElementById("userDetails").innerHTML = "Logged out successfully!";
+}
+
+</script>
+
+</body>
+</html>
