@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>jQuery DOM Traversal</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+<script src="traversal.js"></script>
+
+</head>
+
+<body>
+
+<h1>jQuery DOM Traversal Methods</h1>
+
+<div id="grandparent">
+
+<h2>Grandparent</h2>
+
+<div id="parent">
+
+<h3>Parent</h3>
+
+<ul id="list">
+
+<li class="item">Item 1</li>
+<li class="item active">Item 2</li>
+<li class="item">Item 3</li>
+<li class="item stop">Item 4</li>
+<li class="item">Item 5</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<hr>
+
+<h2>Parent Traversal</h2>
+
+<button id="btnParent">parent()</button>
+<button id="btnParents">parents()</button>
+<button id="btnParentsUntil">parentsUntil()</button>
+
+<hr>
+
+<h2>Children Traversal</h2>
+
+<button id="btnChildren">children()</button>
+<button id="btnFind">find()</button>
+
+<hr>
+
+<h2>Sibling Traversal</h2>
+
+<button id="btnSiblings">siblings()</button>
+<button id="btnNext">next()</button>
+<button id="btnNextAll">nextAll()</button>
+<button id="btnNextUntil">nextUntil()</button>
+<button id="btnPrev">prev()</button>
+<button id="btnPrevAll">prevAll()</button>
+<button id="btnPrevUntil">prevUntil()</button>
+
+<hr>
+
+<h2>Filtering Methods</h2>
+
+<button id="btnFirst">first()</button>
+<button id="btnLast">last()</button>
+<button id="btnEq">eq()</button>
+<button id="btnFilter">filter()</button>
+<button id="btnNot">not()</button>
+
+</body>
+</html>
